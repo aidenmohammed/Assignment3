@@ -4,11 +4,20 @@ let mongoose = require('mongoose');
 let Assignment = require('../model/assignment');
 const assignment = require('../model/assignment');
 
+function requireAuth(req,res,next){
+    if(!req.isAuthenticated()){
+        return res.redirect('/login');
+    }
+    next();
+}
+
+
 router.get('/',async(req,res,next)=>{
 try{
     const AssignmentList = await Assignment.find();
     res.render('Assignment/list',{
         title:'Assignments',
+        displayName: req.user? req.user.displayName:'',
         AssignmentList:AssignmentList
     })}
     catch(err){
@@ -23,7 +32,8 @@ try{
 router.get('/add',async(req,res,next)=>{
     try{
         res.render('Assignment/add',{
-            title: 'Add Assignment'
+            title: 'Add Assignment',
+            displayName: req.user? req.user.displayName:''
         })
     }
     catch(err)
@@ -63,6 +73,8 @@ router.get('/edit/:id',async(req,res,next)=>{
         res.render('Assignment/edit',
             {
                 title:'Edit Assignment',
+                displayName: req.user? req.user.displayName:'',
+
                 Assignment:assignmentToEdit
             }
         )

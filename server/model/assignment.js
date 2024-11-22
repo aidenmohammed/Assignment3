@@ -7,6 +7,6 @@ let assignmentModel = mongoose.Schema({
     Class: String
 },
 {
-    collection:"Assignment"
+    collection:"Assignments"
 });
 module.exports =mongoose.model('Assignment',assignmentModel);

@@ -2,4 +2,14 @@
 <%- include Partials/main_nav.ejs%>
     <h1><%= title %></h1>
     <p>This is the <%= title %> page!</p>
+    <% if(typeof displayName == 'string' && displayName) { %>
+    <br>
+    <p>Welcome, <%= displayName %></p>
+
+    <% } else { %>
+    <p>Please make an account or log in</p>
+    <a href = "/login">Login</a>
+    <br>
+    <a href = "/register">Register</a>
+<% } %>
 <%- include Partials/footer.ejs%>

@@ -1,0 +1,1 @@
+I used the navbar and footer from bootstrap
