@@ -32,7 +32,7 @@
                     </a>
                     </td>
                     <td class="text-center col-1">
-                        <a href="/assignmentslist/delete/<%= AssignmentList[count]._id%>"
+                        <a href = "#" onclick = "return confirmDelete('/assignmentslist/delete/<%= AssignmentList[count]._id %>');"
                             class="btn btn-danger btn-sm">
                         <i class="fas fa-trash-alt"></i>Delete
                     </a>
@@ -64,4 +64,13 @@
         </div>
     </div>
 </main>
+                    <script>
+                    function confirmDelete(deleteLink) {
+                    if (confirm('Are you sure you want to remove this assignment?')) {
+                    window.location.href = deleteLink;
+                    } else {
+                    return false;
+                    }
+                    }
+                    </script>
 <%- include ../Partials/footer.ejs%>

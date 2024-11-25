@@ -8,8 +8,10 @@
 
     <% } else { %>
     <p>Please make an account or log in</p>
-    <a id = "link" href = "/login">Login</a>
+    <div class = "homeButtons">
+    <a href = "/login" class="btn bg-dark text-white" >Login</a>
     <br>
-    <a id = "link" href = "/register">Register</a>
+    <a  id = "link" href = "/register" class="btn bg-info text-black" >Register</a>
+    </div>
 <% } %>
 <%- include Partials/footer.ejs%>

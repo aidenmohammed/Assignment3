@@ -11,8 +11,9 @@ p{
     font-size:20px;
     text-align: center;
 }
-#link {
-    color: black;
+.homeButtons {
+    size: 30px;
     font-size: 30px;
     text-align: center;
 }
+
